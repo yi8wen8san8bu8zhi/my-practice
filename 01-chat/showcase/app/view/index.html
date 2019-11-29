@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input class="form-control" type="text"><br />
+    <h1>这是首页</h1>
+    {{title}}
+    <button id="btn1">我要添加数据</button>
+    <button id="btn2">我要删除数据,这里是数字，因为是寻找的id</button>
+    <button id="btn3">我要修改数据</button>
+    <button id="btn4">我要查看数据</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+      $("#btn1").click(function(){
+        var data= $("input").val();
+        if(data){
+          $.ajax({
+          type:'get',
+          url:'/add/'+data,
+          success:function(data){
+              if(data == 'success'){
+                  alert('上传成功！');
+              }
+            }
+          });
+        }
+      });
+      $("#btn2").click(function(){
+        var data= $("input").val();
+        if(data){
+          $.ajax({
+          type:'get',
+          url:'/del/'+data,
+          success:function(data){
+              if(data == 'success'){
+                  alert('删除成功');
+              }
+            }
+          });
+        }
+      });
+      $("#btn3").click(function(){
+        var data= $("input").val();
+        if(data){
+          $.ajax({
+          type:'get',
+          url:'/put/'+data,
+          success:function(data){
+              if(data == 'success'){
+                  alert('修改成功');
+              }
+            }
+          });
+        }
+      });
+      $("#btn4").click(function(){
+        var data= $("input").val();
+        if(data){
+          $.ajax({
+          type:'get',
+          url:'/sel/'+data,
+          success:function(data){
+              console.log(data)
+              if(data.code == 'success'){
+                  alert('查询成功请到控制台查看');
+              }
+            }
+          });
+        }
+      });
+</script>
+</html>

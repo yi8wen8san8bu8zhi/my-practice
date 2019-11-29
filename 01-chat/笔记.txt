@@ -1,0 +1,60 @@
+ //egg学习笔记
+ //创建项目
+  $ npm i egg-init -g
+  $ egg-init react-native-learning-server --type=simple
+  $ cd react-native-learning-server
+  $ npm i
+  $ npm run dev
+  //---------------------------------------------------------------------------------
+  // 配置路由
+   基础版: 在router连接每个
+   router.get('/index', controller.index);
+   ----------------------------------------------------------------------------------
+   升级版: 在项目接口很多情况下可以在app下面创建一个文件夹routers, 然后分别创建文件,
+   然后将router.js 中的路由进行分割，不同的路由都分割到对应的文件下.
+   在router.js 中去引用每个单独的路由
+  // --------------------------------------------------------------------------------
+   连接数据库
+   1，下载包：npm i egg-mysql --save
+   2：在config/plugin.js中配置插件
+   3：配置mysql 的连接, 我们修改config/config.default.js：
+  //---------------------------------------------------------------------------------
+  // 配置页面
+  1、下载nunjucks包 npm i egg-view-nunjucks --save
+  2，在config/plugin.js里声明该插件
+    exports.nunjucks = {
+    enable: true,
+    package: 'egg-view-nunjucks'
+  3，在config/config.default.js里面配置
+    exports.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.html': 'nunjucks' //左边写成.html后缀，会自动渲染.html文件
+       },
+    };
+  4、在路由配置中router.js，配置前端页面
+     router.get('/', controller.index.index);
+  5，在controller控制器配置
+  6，在view视图层文件夹里面添加index.html
+  //------------------------------------------------------------------------------
+  7，常用模板写法
+       1、普通数据
+       {{ title }}
+       2、for循环
+       {% for item in list %}
+       {{ item.id }}
+       {% endfor %}
+       3、if语句，多条件使用：and, or, not
+       {% if i < 0 %}
+         条件内容
+       {% elif i >=0 and i < 100 %}
+         条件内容
+       {% else %}
+         条件内容
+       {% endif %}
+       4、三目运算
+       {{ "是" if isVip == 1 else "否" }}
+       5、引入其他模板
+       {% include "../header.html" %}
+
+       
