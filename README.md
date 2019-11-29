@@ -1,2 +1,3 @@
 # my-practice
-平常得一些练习
+My daily exercises
+日常得练习
