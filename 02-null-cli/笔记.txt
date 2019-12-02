@@ -1,0 +1,38 @@
+官网:https://webfansplz.github.io/null-cli/
+1,安装null-cli
+  npm install null-cli -g
+//-------------------------------------------------------------------------
+2,命令
+  2.1:压缩文件
+      命令:null compress <file>
+      举列:null compress ceshi.html
+  2.2:网络请求(只支持无头 get 请求)
+      命令:null fetch <url>
+      举列:null fetch http://127.0.0.1:8888
+  2.3:有道翻译
+      命令:null youdao <word>
+      举列:null youdao frontend
+  2.4:打开浏览器
+      命令:null open <url>
+      举列:null open http://127.0.0.1:8888
+  2.6:生成二维码
+      命令:null qrcode <url>
+      举列:null qrcode http://127.0.0.1:8888
+  2.7:正则表达式
+      命令:null regex
+  2.8:生成随机数
+      命令:null random <length>
+      举列:null random 10
+  2.9:创建模板工程
+      命令:null create <probject-name>
+      举列:null create app
+  2.10:日期格式转换(日期格式转换,时间戳和字符串互相转换)
+      命令:null day <params>
+      举列:null day 1574765068684 
+  2.11:启动 web 服务器
+      命令:null serve <path>
+  2.12:字符串编码/AES 加密(参数-m)(可选值:sha1,sha224,sha256,sha384,sha512,md5,base64,hex)(例子:null enc null-cli -m sha1)
+    命令:null enc <string>
+  2.13:字符串解码/AES 解密(参数-m)(可选值:base64,hex)(例子:null dec 6e756c6c2d636c69 -m hex )
+    命令: null dec <string>
+
